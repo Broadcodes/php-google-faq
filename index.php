@@ -141,6 +141,30 @@
 
         ];
 
+        foreach ($database as $elementText) {
+            ?>
+                <h2><?= $elementText['title'] ?></h2>
+            <?php
+            foreach ($elementText['text'] as $answare) {
+
+                if (gettype($answare) == 'array') {
+                    ?>
+                        <h3><?= $answare['subtitle'] ?></h3>
+                    <?php
+
+                    foreach ($answare['subtext'] as $sub) {
+                        ?>
+                            <p><?= $sub ?></p>
+                        <?php
+                    }
+                } else {
+                    ?>
+                        <p><?= $answare ?></p>
+                    <?php
+                }
+            }
+        }
+
         ?>
     </main>
 
